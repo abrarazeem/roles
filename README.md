@@ -1,5 +1,10 @@
 # Roles And Permissions For Laravel 5
 
+
+## Fork of romanbican/roles to make compatible with MongoDB laravel package jenssegers/laravel-mongodb see package for details now roles and permissions are fully compatible with mongodbo
+
+
+
 Powerful package for handling roles and permissions in Laravel 5 (5.1 and also 5.0).
 
 - [Installation](#installation)
