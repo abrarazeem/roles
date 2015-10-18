@@ -3,7 +3,7 @@
 namespace Bican\Roles\Models;
 
 use Bican\Roles\Traits\Slugable;
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Model;
 use Bican\Roles\Traits\RoleHasRelations;
 use Bican\Roles\Contracts\RoleHasRelations as RoleHasRelationsContract;
 
