@@ -35,9 +35,16 @@ class VerifyRole
      */
     public function handle($request, Closure $next, $role)
     {
-        if ($this->auth->check() && $this->auth->user()->is($role)) {
-            return $next($request);
-        }
+            $roles = $this->auth->user()->roles()->get();
+            $permissions =  [];
+            foreach($roles as $role){
+                if(count($role->permissions()->get()->toArray()))
+                    array_push($permissions,array_column($role->permissions()->get()->toArray(),'slug'));
+            }
+            $path = str_replace('/','.',$request->path());
+            if(in_array($path,array_flatten($permissions))){
+                return $next($request);
+            }
 
         throw new RoleDeniedException($role);
     }
