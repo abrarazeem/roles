@@ -41,7 +41,15 @@ class VerifyRole
                 if(count($role->permissions()->get()->toArray()))
                     array_push($permissions,array_column($role->permissions()->get()->toArray(),'slug'));
             }
-            $path = str_replace('/','.',$request->path());
+            $path_arr = explode('/',$request->path());
+            if(count($path_arr) > 1){
+                $path = $path_arr[0].".".$path_arr[1];
+            }else{
+                $path = $path_arr[0];
+            }
+
+            //dd( $path);
+
             if(in_array($path,array_flatten($permissions))){
                 return $next($request);
             }
