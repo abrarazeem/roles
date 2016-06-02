@@ -16,7 +16,8 @@ class Role extends Model implements RoleHasRelationsContract
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug', 'description', 'level'];
+    // protected $fillable = ['name', 'slug', 'description', 'level'];
+    protected $guarded = ['_id'];
 
     /**
      * Create a new model instance.
