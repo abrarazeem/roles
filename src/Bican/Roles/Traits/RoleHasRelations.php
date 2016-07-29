@@ -15,6 +15,17 @@ trait RoleHasRelations
     }
 
     /**
+     * Role belongs to many permissions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function reporting()
+    {
+        return $this->belongsToMany(config('roles.models.role'))->withTimestamps();
+    }
+
+
+    /**
      * Role belongs to many users.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
