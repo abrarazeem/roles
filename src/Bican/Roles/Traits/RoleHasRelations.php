@@ -21,7 +21,7 @@ trait RoleHasRelations
      */
     public function reporting()
     {
-        return $this->belongsToMany(config('roles.models.role'))->withTimestamps();
+        return $this->belongsTo(config('roles.models.role'))->withTimestamps();
     }
 
 
